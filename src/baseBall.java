@@ -7,10 +7,7 @@ public class baseBall {
 
         while (true) {
 
-            Random random = new Random();
-            random.setSeed(System.currentTimeMillis());
-            int randomNumber = random.nextInt(899) + 100;
-            System.out.println(randomNumber);
+            int randomNumber = randomNumberPick();
 
             int[] randomArr = new int[3];
             int number = 100;
@@ -113,5 +110,13 @@ public class baseBall {
             }
         }
         System.out.println("게임을 종료합니다.");
+    }
+
+    private static int randomNumberPick() {
+        Random random = new Random();
+        random.setSeed(System.currentTimeMillis());
+        int randomNumber = random.nextInt(899) + 100;
+        System.out.println(randomNumber);
+        return randomNumber;
     }
 }
