@@ -10,7 +10,6 @@ public class baseBall {
         while (true) {
 
             int randomNumber = randomNumberPick();
-
             int[] randomArr = new int[3];
             randomNumberList(randomArr,randomNumber);
 
@@ -33,7 +32,6 @@ public class baseBall {
                         }
                     }
                 }
-
                 if (strike == 3) {
                     break;
                 }
@@ -49,10 +47,7 @@ public class baseBall {
                     System.out.println(strike + "스트라이크 " + ball + "볼");
                 }
             }
-            System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임종료");
-            System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
-            Scanner sc = new Scanner(System.in);
-            int resetGame = Integer.parseInt(sc.nextLine());
+            int resetGame = questionGameOver();
             if (resetGame==2) {
                 break;
             }
@@ -65,6 +60,15 @@ public class baseBall {
         random.setSeed(System.currentTimeMillis());
         int randomNumber = random.nextInt(899)+100;
         System.out.println(randomNumber);
+        while (true) {
+            int hundred = randomNumber/100;
+            int ten = (randomNumber/10)%10;
+            int one = randomNumber%10;
+
+            if (hundred != ten && ten != one && hundred != one) {
+                break;
+            }
+        }
         return randomNumber;
     }
 
@@ -109,5 +113,12 @@ public class baseBall {
         strikeBall.add(strike);
         strikeBall.add(ball);
         return strikeBall;
+    }
+    private static int questionGameOver() {
+        System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임종료");
+        System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+        Scanner sc = new Scanner(System.in);
+        int resetGame = Integer.parseInt(sc.nextLine());
+        return resetGame;
     }
 }
