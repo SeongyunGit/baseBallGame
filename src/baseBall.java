@@ -24,13 +24,7 @@ public class baseBall {
                 int ball = strikeBall.get(1);
 
                 if (strike==0) {
-                    for (int i=0;i<3;i++) {
-                        for (int j=0;j<3;j++) {
-                            if (i!=j && userArr[i]==randomArr[j]) {
-                                ball+=1;
-                            }
-                        }
-                    }
+                    ball = findBall(userArr,randomArr,ball);
                 }
                 if (strike == 3) {
                     break;
@@ -120,5 +114,16 @@ public class baseBall {
         Scanner sc = new Scanner(System.in);
         int resetGame = Integer.parseInt(sc.nextLine());
         return resetGame;
+    }
+
+    private static int findBall(int[] userArr, int[] randomArr, int ball) {
+        for (int i=0;i<3;i++) {
+            for (int j=0;j<3;j++) {
+                if (i!=j && userArr[i]==randomArr[j]) {
+                    ball+=1;
+                }
+            }
+        }
+        return ball;
     }
 }
