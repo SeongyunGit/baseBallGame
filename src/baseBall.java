@@ -29,17 +29,7 @@ public class baseBall {
                 if (strike == 3) {
                     break;
                 }
-                if (strike>0) {
-                    if (ball > 0) {
-                        System.out.println(strike + "스트라이크 " + ball + "볼");
-                    } else {
-                        System.out.println(strike + "스트라이크");
-                    }
-                } else if (ball > 0) {
-                    System.out.println(ball + "볼");
-                } else {
-                    System.out.println(strike + "스트라이크 " + ball + "볼");
-                }
+                judgeStrikeAndBall(strike,ball);
             }
             int resetGame = questionGameOver();
             if (resetGame==2) {
@@ -125,5 +115,18 @@ public class baseBall {
             }
         }
         return ball;
+    }
+    private static void judgeStrikeAndBall(int strike, int ball) {
+        if (strike>0) {
+            if (ball > 0) {
+                System.out.println(strike + "스트라이크 " + ball + "볼");
+            } else {
+                System.out.println(strike + "스트라이크");
+            }
+        } else if (ball > 0) {
+            System.out.println(ball + "볼");
+        } else {
+            System.out.println(strike + "스트라이크 " + ball + "볼");
+        }
     }
 }
