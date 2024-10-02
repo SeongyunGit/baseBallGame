@@ -16,18 +16,10 @@ public class baseBall {
                 int userNumber = userNumberScan();
 
                 int[] userArr = new int[3];
-                int userNumberset = 100;
-                for (int i = 0; i < 3; i++) {
-                    userArr[i] = userNumber / userNumberset;
-                    int minus = userNumberset * userArr[i];
-                    userNumber -= minus;
-                    userNumberset /= 10;
-                }
-
+                userNumberList(userNumber,userArr);
 
                 int strike = 0;
                 int ball = 0;
-
                 if (userArr[0] == randomArr[0]) {
                     strike += 1;
                     if (userArr[2] == randomArr[1]) {
@@ -127,5 +119,14 @@ public class baseBall {
         System.out.print("숫자를 입력하세요: ");
         int userNumber = Integer.parseInt(sc.nextLine());
         return userNumber;
+    }
+    private static void userNumberList(int userNumber,int[] userArr) {
+        int userNumberset = 100;
+        for (int i = 0; i < 3; i++) {
+            userArr[i] = userNumber / userNumberset;
+            int minus = userNumberset * userArr[i];
+            userNumber -= minus;
+            userNumberset /= 10;
+        }
     }
 }
