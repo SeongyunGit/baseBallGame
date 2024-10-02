@@ -8,7 +8,6 @@ public class baseBall {
         System.out.println("숫자 야구 게임을 시작합니다.");
 
         while (true) {
-
             int randomNumber = randomNumberPick();
             int[] randomArr = new int[3];
             randomNumberList(randomArr,randomNumber);
@@ -34,6 +33,8 @@ public class baseBall {
             int resetGame = questionGameOver();
             if (resetGame==2) {
                 break;
+            } else if (resetGame!=1) {
+                throw new IllegalArgumentException("잘못된 값을 입력하셨습니다. 게임 종료합니다.");
             }
         }
         System.out.println("게임을 종료합니다.");
@@ -126,7 +127,7 @@ public class baseBall {
         } else if (ball > 0) {
             System.out.println(ball + "볼");
         } else {
-            System.out.println(strike + "스트라이크 " + ball + "볼");
+            System.out.println("낫싱");
         }
     }
 }
