@@ -10,13 +10,8 @@ public class baseBall {
             int randomNumber = randomNumberPick();
 
             int[] randomArr = new int[3];
-            int number = 100;
-            for (int j = 0; j < 3; j++) {
-                randomArr[j] = randomNumber / number;
-                int minus = number * randomArr[j];
-                randomNumber -= minus;
-                number /= 10;
-            }
+            randomNumberList(randomArr,randomNumber);
+
 
             while (true) {
                 Scanner sc = new Scanner(System.in);
@@ -118,5 +113,15 @@ public class baseBall {
         int randomNumber = random.nextInt(899) + 100;
         System.out.println(randomNumber);
         return randomNumber;
+    }
+
+    private static void randomNumberList(int[] randomArr,int randomNumber) {
+        int number = 100;
+        for (int j = 0; j < 3; j++) {
+            randomArr[j] = randomNumber / number;
+            int minus = number * randomArr[j];
+            randomNumber -= minus;
+            number /= 10;
+        }
     }
 }
