@@ -12,11 +12,9 @@ public class baseBall {
             int[] randomArr = new int[3];
             randomNumberList(randomArr,randomNumber);
 
-
             while (true) {
-                Scanner sc = new Scanner(System.in);
-                System.out.print("숫자를 입력하세요: ");
-                int userNumber = Integer.parseInt(sc.nextLine());
+                int userNumber = userNumberScan();
+
                 int[] userArr = new int[3];
                 int userNumberset = 100;
                 for (int i = 0; i < 3; i++) {
@@ -123,5 +121,11 @@ public class baseBall {
             randomNumber -= minus;
             number /= 10;
         }
+    }
+    private static int userNumberScan() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("숫자를 입력하세요: ");
+        int userNumber = Integer.parseInt(sc.nextLine());
+        return userNumber;
     }
 }
