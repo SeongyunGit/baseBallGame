@@ -34,12 +34,9 @@ public class baseBallGameController {
                 }
                 view.judgeStrikeAndBall(strike, ball);
             }
-            int resetGame = view.questionGameOver();
-            if (resetGame == 2) {
-                System.out.println("게임을 종료합니다.");
+            boolean resetGame = view.questionGameOver();
+            if (resetGame == false) {
                 break;
-            } else if (resetGame != 1) {
-                throw new IllegalArgumentException("잘못된 값을 입력하셨습니다. 게임 종료합니다.");
             }
         }
     }
