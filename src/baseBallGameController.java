@@ -9,7 +9,7 @@ public class baseBallGameController {
         this.view = view;
     }
 
-    static void gameStart() {
+    public static void gameStart() {
         while (true) {
             int randomNumber = model.randomNumberPick();
             int[] randomArr = new int[3];

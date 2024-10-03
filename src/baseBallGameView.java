@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 public class baseBallGameView {
-
     static int userNumberScan() {
         Scanner sc = new Scanner(System.in);
         System.out.print("숫자를 입력하세요: ");
