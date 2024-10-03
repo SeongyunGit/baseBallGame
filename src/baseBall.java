@@ -65,12 +65,6 @@ public class baseBall {
             number /= 10;
         }
     }
-    private static int userNumberScan() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("숫자를 입력하세요: ");
-        int userNumber = Integer.parseInt(sc.nextLine());
-        return userNumber;
-    }
     private static void userNumberList(int userNumber,int[] userArr) {
         int userNumberset = 100;
         for (int i = 0; i < 3; i++) {
@@ -80,6 +74,8 @@ public class baseBall {
             userNumberset /= 10;
         }
     }
+
+
     private static List<Integer> strikeAndBall(int[] userArr, int[] randomArr) {
         List<Integer> strikeBall = new ArrayList<>();
         int strike = 0;
@@ -97,13 +93,6 @@ public class baseBall {
         strikeBall.add(strike);
         strikeBall.add(ball);
         return strikeBall;
-    }
-    private static int questionGameOver() {
-        System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임종료");
-        System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
-        Scanner sc = new Scanner(System.in);
-        int resetGame = Integer.parseInt(sc.nextLine());
-        return resetGame;
     }
 
     private static int findBall(int[] userArr, int[] randomArr, int ball) {
@@ -126,5 +115,20 @@ public class baseBall {
         } else {
             System.out.println(strike + "스트라이크");
         }
+    }
+
+    private static int userNumberScan() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("숫자를 입력하세요: ");
+        int userNumber = Integer.parseInt(sc.nextLine());
+        return userNumber;
+    }
+
+    private static int questionGameOver() {
+        System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임종료");
+        System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+        Scanner sc = new Scanner(System.in);
+        int resetGame = Integer.parseInt(sc.nextLine());
+        return resetGame;
     }
 }
