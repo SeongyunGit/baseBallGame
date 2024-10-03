@@ -20,21 +20,21 @@ public class baseBallGameController {
                 int userNumber = view.userNumberScan();
 
                 int[] userArr = new int[3];
-                baseBallGameModel.userNumberList(userNumber, userArr);
+                model.userNumberList(userNumber, userArr);
 
-                List<Integer> strikeBall = baseBallGameModel.strikeAndBall(userArr, randomArr);
+                List<Integer> strikeBall = model.strikeAndBall(userArr, randomArr);
                 int strike = strikeBall.get(0);
                 int ball = strikeBall.get(1);
 
                 if (strike == 0) {
-                    ball = baseBallGameModel.findBall(userArr, randomArr, ball);
+                    ball = model.findBall(userArr, randomArr, ball);
                 }
                 if (strike == 3) {
                     break;
                 }
-                baseBallGameView.judgeStrikeAndBall(strike, ball);
+                view.judgeStrikeAndBall(strike, ball);
             }
-            int resetGame = baseBallGameView.questionGameOver();
+            int resetGame = view.questionGameOver();
             if (resetGame == 2) {
                 System.out.println("게임을 종료합니다.");
                 break;
