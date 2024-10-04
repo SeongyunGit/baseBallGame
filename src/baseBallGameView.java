@@ -8,7 +8,7 @@ public class baseBallGameView {
         return userNumber;
     }
 
-     boolean questionGameOver() {
+    boolean questionGameOver() {
         System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임종료");
         System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
         Scanner sc = new Scanner(System.in);
@@ -16,12 +16,14 @@ public class baseBallGameView {
         if (resetGame == 2) {
             System.out.println("게임을 종료합니다.");
             return false;
-        } if (resetGame != 1) {
+        }
+        if (resetGame != 1) {
             throw new IllegalArgumentException("잘못된 값을 입력하셨습니다. 게임 종료합니다.");
         }
         return true;
     }
-     void judgeStrikeAndBall(int strike, int ball) {
+
+    void judgeStrikeAndBall(int strike, int ball) {
         if (strike>0 && ball>0) {
             System.out.println(strike + "스트라이크 " + ball + "볼");
         } else if (ball > 0) {

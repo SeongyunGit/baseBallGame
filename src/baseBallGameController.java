@@ -1,15 +1,15 @@
 import java.util.List;
 
 public class baseBallGameController {
-    private  final baseBallGameModel model;
-    private  final baseBallGameView view;
+    private final baseBallGameModel model;
+    private final baseBallGameView view;
 
     public baseBallGameController(baseBallGameModel model, baseBallGameView view) {
         this.model = model;
         this.view = view;
     }
 
-    public  void gameStart() {
+    public void gameStart() {
         while (true) {
             int randomNumber = model.randomNumberPick();
             int[] randomArr = new int[3];
@@ -29,10 +29,11 @@ public class baseBallGameController {
                 if (strike == 0) {
                     ball = model.findBall(userArr, randomArr, ball);
                 }
+                view.judgeStrikeAndBall(strike, ball);
+
                 if (strike == 3) {
                     break;
                 }
-                view.judgeStrikeAndBall(strike, ball);
             }
             boolean resetGame = view.questionGameOver();
             if (!resetGame) {
