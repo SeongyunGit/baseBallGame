@@ -3,7 +3,7 @@ import java.util.List;
 import java.util.Random;
 
 public class baseBallGameModel {
-    public  int randomNumberPick() {
+    public int randomNumberPick() {
         Random random = new Random();
         int randomNumber = random.nextInt(899)+100;
         System.out.println(randomNumber);
@@ -18,7 +18,7 @@ public class baseBallGameModel {
         }
         return randomNumber;
     }
-    public  void randomNumberList(int[] randomArr, int randomNumber) {
+    public void randomNumberList(int[] randomArr, int randomNumber) {
         int number = 100;
         for (int j = 0; j < 3; j++) {
             randomArr[j] = randomNumber / number;
@@ -27,7 +27,7 @@ public class baseBallGameModel {
             number /= 10;
         }
     }
-    public  void userNumberList(int userNumber, int[] userArr) {
+    public void userNumberList(int userNumber, int[] userArr) {
         int userNumberset = 100;
         for (int i = 0; i < 3; i++) {
             userArr[i] = userNumber / userNumberset;
@@ -36,7 +36,7 @@ public class baseBallGameModel {
             userNumberset /= 10;
         }
     }
-    public  List<Integer> strikeAndBall(int[] userArr, int[] randomArr) {
+    public List<Integer> strikeAndBall(int[] userArr, int[] randomArr) {
         List<Integer> strikeBall = new ArrayList<>();
         int strike = 0;
         int ball = 0;
@@ -54,7 +54,7 @@ public class baseBallGameModel {
         strikeBall.add(ball);
         return strikeBall;
     }
-    public  int findBall(int[] userArr, int[] randomArr, int ball) {
+    public int findBall(int[] userArr, int[] randomArr, int ball) {
         for (int i=0;i<3;i++) {
             for (int j=0;j<3;j++) {
                 if (i!=j && userArr[i]==randomArr[j]) {
