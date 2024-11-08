@@ -12,22 +12,29 @@ public class baseBallGameController {
     public void gameStart() {
         while (true) {
             int randomNumber = model.randomNumberPick();
-            int[] randomArr = new int[3];
+            UserNumberList userNumberList = new UserNumberList();
+
+            int[] randomArr = userNumberList.getUserNumberList();
             model.randomNumberList(randomArr, randomNumber);
 
             while (true) {
 
                 int userNumber = view.userNumberScan();
 
-                int[] userArr = new int[3];
+                RandomNumberList randomNumberList = new RandomNumberList();
+
+                int[] userArr=randomNumberList.getRandomNumberList();
+
                 model.userNumberList(userNumber, userArr);
 
-                List<Integer> strikeBall = model.strikeAndBall(userArr, randomArr);
-                int strike = strikeBall.get(0);
-                int ball = strikeBall.get(1);
+                StrikeBall strikeBall = new StrikeBall();
+                model.strikeAndBall(strikeBall, userArr, randomArr);
+                int strike = strikeBall.getStrike();
+                int ball = strikeBall.getBall();
+
 
                 if (strike == 0) {
-                    ball = model.findBall(userArr, randomArr, ball);
+                    ball = model.findBall(randomNumberList.getRandomNumberList(), randomArr, ball);
                 }
                 view.judgeStrikeAndBall(strike, ball);
 

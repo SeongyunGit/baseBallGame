@@ -4,10 +4,12 @@ import java.util.Random;
 
 public class baseBallGameModel {
     public int randomNumberPick() {
-        Random random = new Random();
-        int randomNumber = random.nextInt(899)+100;
-        System.out.println(randomNumber);
+        int randomNumber = 0;
         while (true) {
+            BaseballRandomNumber baseballRandomNumber = new BaseballRandomNumber();
+            randomNumber = baseballRandomNumber.getBaseballNumber();
+
+            System.out.println(randomNumber);
             int hundred = randomNumber/100;
             int ten = (randomNumber/10)%10;
             int one = randomNumber%10;
@@ -36,23 +38,20 @@ public class baseBallGameModel {
             userNumberset /= 10;
         }
     }
-    public List<Integer> strikeAndBall(int[] userArr, int[] randomArr) {
-        List<Integer> strikeBall = new ArrayList<>();
-        int strike = 0;
-        int ball = 0;
+    public void strikeAndBall(StrikeBall strikeBall, int[] userArr, int[] randomArr) {
+
         for (int i =0; i<3; i++) {
             if (userArr[i] == randomArr[i]) {
-                strike += 1;
+                strikeBall.plusStrike();
+
                 if (userArr[(i+2)%3]==randomArr[(i+1)%3] && userArr[(i+1)%3] == randomArr[(i+2)%3]) {
-                    ball += 2;
+                    strikeBall.plusBall();
+
                 } else if (userArr[(i+2)%3]==randomArr[(i+1)%3] || userArr[(i+1)%3] == randomArr[(i+2)%3]) {
-                    ball += 1;
+                    strikeBall.plusBall();
                 }
             }
         }
-        strikeBall.add(strike);
-        strikeBall.add(ball);
-        return strikeBall;
     }
     public int findBall(int[] userArr, int[] randomArr, int ball) {
         for (int i=0;i<3;i++) {
